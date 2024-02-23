@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>FinancialBot.Persistance</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2"/>
+        <PackageReference Include="Telegram.Bot" Version="19.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\FinancialBot.Application\FinancialBot.Application.csproj"/>
+        <ProjectReference Include="..\FinancialBot.Domain\FinancialBot.Domain.csproj"/>
+    </ItemGroup>
+
+</Project>
