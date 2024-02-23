@@ -11,5 +11,9 @@ public class AppUserConfiguration : IEntityTypeConfiguration<AppUser>
         builder.HasKey(user => user.Id);
         builder.Property(user => user.ChatId).IsRequired();
         builder.Property(user => user.Username).IsRequired();
+
+        builder.HasMany(user => user.Operations)
+            .WithOne(op => op.User)
+            .HasForeignKey(op => op.UserId);
     }
 }

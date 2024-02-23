@@ -3,8 +3,14 @@ using FinancialBot.Application;
 using FinancialBot.Application.Common.Mappings;
 using FinancialBot.Application.Interfaces;
 using FinancialBot.Persistence;
+using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 builder.Services.AddAutoMapper(config =>
 {
@@ -15,9 +21,6 @@ builder.Services.AddAutoMapper(config =>
 builder.Services.AddApplication();
 builder.Services.AddPersistence(builder.Configuration);
 
-builder.Services.AddControllers().AddNewtonsoftJson();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -29,5 +32,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.Run();
