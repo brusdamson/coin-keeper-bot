@@ -8,7 +8,9 @@ public class Purchase
 
     public double TotalCost { get; set; }
 
-    public List<PurchaseProduct> PurchaseProducts { get; set; } = [];
+    public List<PurchaseProduct> PurchaseProducts { get; } = [];
 
     public List<Product> Products { get; } = [];
+
+    public List<Operation> Operations { get; } = [];
 }

@@ -35,4 +35,8 @@
         <ProjectReference Include="..\FinancialBot.Persistence\FinancialBot.Persistence.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Middlewares\" />
+    </ItemGroup>
+
 </Project>

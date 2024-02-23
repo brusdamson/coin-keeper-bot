@@ -12,14 +12,17 @@ public class CreatePurchaseCommandHandler(IAppDbContext dbContext) : IRequestHan
         {
             Id = Guid.NewGuid(),
             PurchaseDate = request.PurchaseDate,
-            PurchaseProducts = request.Products.Select(p => new PurchaseProduct
-            {
-                Id = Guid.NewGuid(),
-                ProductId = p.ProductId,
-            }).ToList(),
         };
 
+        var purchaseProducts = request.Products.Select(p => new PurchaseProduct
+        {
+            Id = Guid.NewGuid(),
+            ProductId = p.ProductId,
+            PurchaseId = purchase.Id,
+        }).ToList();
+
         await dbContext.Purchases.AddAsync(purchase, cancellationToken);
+        await dbContext.PurchaseProducts.AddRangeAsync(purchaseProducts, cancellationToken);
         await dbContext.SaveChangesAsync(cancellationToken);
 
         return purchase.Id;
