@@ -1,0 +1,6 @@
+@FinancialBot.Core_HostAddress = http://localhost:5048
+
+GET {{FinancialBot.Core_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
