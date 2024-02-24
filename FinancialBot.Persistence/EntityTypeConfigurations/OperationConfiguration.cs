@@ -9,7 +9,7 @@ public class OperationConfiguration : IEntityTypeConfiguration<Operation>
     public void Configure(EntityTypeBuilder<Operation> builder)
     {
         builder.HasKey(op => op.Id);
-        
+
         builder.HasOne(op => op.Category)
             .WithMany(ctg => ctg.Operations)
             .HasForeignKey(op => op.CategoryId);
