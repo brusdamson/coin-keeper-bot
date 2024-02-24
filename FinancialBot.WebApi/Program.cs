@@ -21,9 +21,7 @@ builder.Services.AddAutoMapper(config =>
 builder.Services.AddApplication();
 builder.Services.AddPersistence(builder.Configuration);
 
-
 var app = builder.Build();
-
 
 if (app.Environment.IsDevelopment())
 {

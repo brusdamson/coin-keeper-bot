@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace FinancialBot.Domain;
+﻿namespace FinancialBot.Domain;
 
 public class AppUser
 {

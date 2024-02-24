@@ -12,11 +12,11 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Product> Products { get; set; }
 
     public DbSet<PurchaseProduct> PurchaseProducts { get; set; }
-    
+
     public DbSet<AppUser> AppUsers { get; set; }
-    
+
     public DbSet<Category> Categories { get; set; }
-    
+
     public DbSet<Operation> Operations { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
