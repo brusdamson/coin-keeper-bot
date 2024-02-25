@@ -1,4 +1,5 @@
 ﻿using FinancialBot.Application.Products.Commands;
+using FinancialBot.Application.Telegram.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +10,12 @@ namespace FinancialBot.Core.Controllers;
 public class TestController : ControllerBase
 {
     private readonly IMediator _mediator;
+    private readonly IQrReader _qrReader;
 
-    public TestController(IMediator mediator)
+    public TestController(IMediator mediator, IQrReader qrReader)
     {
         _mediator = mediator;
+        _qrReader = qrReader;
     }
 
     [HttpPost]
