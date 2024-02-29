@@ -1,4 +1,4 @@
-﻿namespace FinancialBot.Application.Products.Commands.CreatePurchase;
+﻿namespace FinancialBot.Application.Purchases.Commands.CreatePurchase;
 
 public class PurchaseProductDto
 {

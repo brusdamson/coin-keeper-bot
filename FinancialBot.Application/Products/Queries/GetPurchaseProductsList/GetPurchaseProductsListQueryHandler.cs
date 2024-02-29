@@ -4,7 +4,7 @@ using FinancialBot.Application.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinancialBot.Application.Products.Queries.GetProductList;
+namespace FinancialBot.Application.Products.Queries.GetPurchaseProductsList;
 
 public class GetPurchaseProductsListQueryHandler(IAppDbContext dbContext, IMapper mapper)
     : IRequestHandler<GetPurchaseProductsListQuery, PurchaseProductsListVm>

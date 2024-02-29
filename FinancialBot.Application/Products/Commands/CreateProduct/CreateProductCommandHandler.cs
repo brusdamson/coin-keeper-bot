@@ -2,7 +2,7 @@
 using FinancialBot.Domain;
 using MediatR;
 
-namespace FinancialBot.Application.Products.Commands;
+namespace FinancialBot.Application.Products.Commands.CreateProduct;
 
 public class CreateProductCommandHandler(IAppDbContext dbContext) : IRequestHandler<CreateProductCommand, Guid>
 {

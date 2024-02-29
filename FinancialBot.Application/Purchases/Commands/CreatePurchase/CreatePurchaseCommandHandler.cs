@@ -2,7 +2,7 @@
 using FinancialBot.Domain;
 using MediatR;
 
-namespace FinancialBot.Application.Products.Commands.CreatePurchase;
+namespace FinancialBot.Application.Purchases.Commands.CreatePurchase;
 
 public class CreatePurchaseCommandHandler(IAppDbContext dbContext) : IRequestHandler<CreatePurchaseCommand, Guid>
 {
