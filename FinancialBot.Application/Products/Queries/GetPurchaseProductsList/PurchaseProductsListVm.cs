@@ -1,4 +1,4 @@
-﻿namespace FinancialBot.Application.Products.Queries.GetProductList;
+﻿namespace FinancialBot.Application.Products.Queries.GetPurchaseProductsList;
 
 public class PurchaseProductsListVm
 {

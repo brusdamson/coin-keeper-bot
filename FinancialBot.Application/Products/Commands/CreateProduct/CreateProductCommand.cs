@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace FinancialBot.Application.Products.Commands;
+namespace FinancialBot.Application.Products.Commands.CreateProduct;
 
 public class CreateProductCommand : IRequest<Guid>
 {

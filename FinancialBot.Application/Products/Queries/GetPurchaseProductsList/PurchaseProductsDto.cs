@@ -2,7 +2,7 @@
 using FinancialBot.Application.Common.Mappings;
 using FinancialBot.Domain;
 
-namespace FinancialBot.Application.Products.Queries.GetProductList;
+namespace FinancialBot.Application.Products.Queries.GetPurchaseProductsList;
 
 public class PurchaseProductsDto : IMapWith<Product>
 {

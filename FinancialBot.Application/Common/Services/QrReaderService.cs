@@ -1,25 +1,24 @@
-﻿using System.Drawing;
-using FinancialBot.Application.Telegram.Interfaces;
+﻿using FinancialBot.Application.Common.Services.Interfaces;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using ZXing;
 using ZXing.Common;
-using ZXing.QrCode;
 using ZXing.ImageSharp;
+using ZXing.QrCode;
 
-namespace FinancialBot.Application.Telegram.Services;
+namespace FinancialBot.Application.Common.Services;
 
 public class QrReaderService : IQrReader
 {
     public async Task<string> ScanAsync(Stream imageStream)
     {
-        Image<Rgba32> image = await SixLabors.ImageSharp.Image.LoadAsync<Rgba32>(imageStream);
+        var image = await Image.LoadAsync<Rgba32>(imageStream);
         return ReadQrCode(image);
     }
 
     public string Scan(Stream imageStream)
     {
-        Image<Rgba32> image =  SixLabors.ImageSharp.Image.Load<Rgba32>(imageStream);
+        var image = Image.Load<Rgba32>(imageStream);
         return ReadQrCode(image);
     }
 

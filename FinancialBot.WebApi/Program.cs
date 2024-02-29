@@ -1,27 +1,23 @@
-using System.Reflection;
 using FinancialBot.Application;
-using FinancialBot.Application.Common.Mappings;
-using FinancialBot.Application.Interfaces;
+using FinancialBot.Application.Common.Telegram;
+using FinancialBot.Application.Common.Telegram.Extensions;
+using FinancialBot.Core.Controllers;
 using FinancialBot.Persistence;
-using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers().AddNewtonsoftJson(options =>
-    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
+var botConfigurationSection = builder.Configuration.GetSection(BotConfiguration.Configuration);
+var botConfiguration = botConfigurationSection.Get<BotConfiguration>();
 
+builder.Services.AddApplication(builder.Configuration);
+builder.Services.AddPersistence(builder.Configuration);
+
+builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddAutoMapper(config =>
-{
-    config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
-    config.AddProfile(new AssemblyMappingProfile(typeof(IAppDbContext).Assembly));
-});
-
-builder.Services.AddApplication();
-builder.Services.AddPersistence(builder.Configuration);
-
 var app = builder.Build();
+
+app.MapBotWebhookRoute<TelegramBotController>(botConfiguration!.Route);
 
 if (app.Environment.IsDevelopment())
 {

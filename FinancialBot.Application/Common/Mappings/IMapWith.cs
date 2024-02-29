@@ -2,7 +2,7 @@
 
 namespace FinancialBot.Application.Common.Mappings;
 
-public class IMapWith<T>
+public interface IMapWith<T>
 {
     private void Mapping(Profile profile)
     {
